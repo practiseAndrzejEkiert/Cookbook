@@ -2,6 +2,7 @@ package pl.andrzejekiert.models.database.dao.impl;
 
 import pl.andrzejekiert.models.CookbookModel;
 import pl.andrzejekiert.models.database.DatabaseConnector;
+import pl.andrzejekiert.models.database.dao.ConnectorDao;
 import pl.andrzejekiert.models.database.dao.CookbookDao;
 
 import java.sql.PreparedStatement;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CookbookDaoImplements implements CookbookDao{
+
 
     private DatabaseConnector databaseConnector = DatabaseConnector.getInstance();
 
@@ -27,6 +29,8 @@ public class CookbookDaoImplements implements CookbookDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
     }
 
 

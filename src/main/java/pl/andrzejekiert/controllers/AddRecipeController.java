@@ -19,8 +19,10 @@ import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 import pl.andrzejekiert.models.CookbookModel;
 import pl.andrzejekiert.models.ProductsModel;
+import pl.andrzejekiert.models.database.dao.ConnectorDao;
 import pl.andrzejekiert.models.database.dao.CookbookDao;
 import pl.andrzejekiert.models.database.dao.ProductsDao;
+import pl.andrzejekiert.models.database.dao.impl.ConnectorDaoImplements;
 import pl.andrzejekiert.models.database.dao.impl.CookbookDaoImplements;
 import pl.andrzejekiert.models.database.dao.impl.ProductsDaoImplements;
 
@@ -89,7 +91,7 @@ public class AddRecipeController implements Initializable {
     @FXML
     TextField textFieldRecipe;
 
-
+private ConnectorDao connectorDao = new ConnectorDaoImplements();
     private ProductsDao productsDao = new ProductsDaoImplements();
     private String recipe;
     private String products1;
@@ -220,6 +222,7 @@ public class AddRecipeController implements Initializable {
             CookbookModel cookbookModel = new CookbookModel(0, time, description, recipe);
             CookbookDao cookbookDao = new CookbookDaoImplements();
             cookbookDao.saveCookbook(cookbookModel);
+            connectorDao.saveConnection();
         });
 
     }
