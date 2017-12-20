@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.andrzejekiert.controllers.AddRecipeController">
+   <children>
+      <Label fx:id="labelTile" alignment="CENTER" layoutX="154.0" prefHeight="47.0" prefWidth="292.0" text="Dodaj przepis" textAlignment="CENTER" AnchorPane.leftAnchor="154.0" AnchorPane.rightAnchor="154.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonAddProducts" layoutX="451.0" layoutY="360.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="169.0" text="Dodaj produkt">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="textAreaAddDescription" layoutX="37.0" layoutY="174.0" prefHeight="200.0" prefWidth="200.0" promptText="Opis " />
+      <Button fx:id="buttonAddRecipe" layoutX="237.0" layoutY="349.0" mnemonicParsing="false" text="Dodaj przepis" />
+      <TextField fx:id="textFieldRecipe" layoutX="41.0" layoutY="47.0" prefHeight="25.0" prefWidth="193.0" promptText="Nazwa przepisu" />
+      <VBox fx:id="vBox1" layoutX="282.0" layoutY="49.0" prefHeight="250.0" prefWidth="169.0">
+         <children>
+            <TextField fx:id="product1" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produky" />
+            <TextField fx:id="product2" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product3" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product4" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product5" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product6" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product7" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product8" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product9" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product10" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+         </children>
+      </VBox>
+      <VBox fx:id="vBox2" layoutX="451.0" layoutY="49.0" prefHeight="250.0" prefWidth="169.0">
+         <children>
+            <TextField fx:id="product11" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product12" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product13" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product14" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product15" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product16" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product17" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product18" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product19" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+            <TextField fx:id="product20" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
+         </children>
+      </VBox>
+      <TextField fx:id="textFieldTime" layoutX="41.0" layoutY="97.0" prefHeight="25.0" prefWidth="193.0" promptText="Szacowany czas" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.andrzejekiert.controllers.MainController">
+   <children>
+      <Label fx:id="labelTitle" layoutX="125.0" layoutY="6.0" prefHeight="47.0" prefWidth="351.0" text="Trochę inna książka kucharska" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="6.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelDescription" layoutX="14.0" layoutY="53.0" text="Na zewnątrz wieje i pada... &#10;Ulubiona pizza przyjedzie dopiero za 2 godziny... &#10;W lodówce kilka warzyw, kawałek sera i resztki już czegoś tak starego, że nie pamiętasz co to było,&#10;Napełniłbyś brzuszek jakiś pysznym jedzeniem ale nie wiesz co można ugotować z tych resztek z lodówki,&#10;Mam dla Ciebie rozwiązanie! &#10;Wypróbuj tej intuicyjnej książki kucharskiej i ciesz się smacznym jedzeniem każdego dnia! " />
+      <TextField fx:id="textFieldInput" layoutX="37.0" layoutY="214.0" prefHeight="25.0" prefWidth="529.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="214.0" />
+      <Text fx:id="textProducts" layoutX="186.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wymień produkty" textAlignment="CENTER">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Button fx:id="button" layoutX="275.0" layoutY="248.0" mnemonicParsing="false" text="Button" />
+      <ListView fx:id="listViewproducts" editable="true" layoutX="37.0" layoutY="248.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="364.0" AnchorPane.topAnchor="248.0" />
+      <Button fx:id="buttonAddRecipe" layoutX="478.0" layoutY="412.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="109.0" text="Dodaj przepis" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="478.0" AnchorPane.rightAnchor="14.0" />
+   </children>
+</AnchorPane>
