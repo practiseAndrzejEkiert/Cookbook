@@ -131,9 +131,7 @@ private String title;
                     product2.requestFocus();
                     //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
                     product = product1.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -145,9 +143,7 @@ private String title;
                     product3.requestFocus();
                     //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
                     product = product2.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -159,9 +155,7 @@ private String title;
                     product4.requestFocus();
                     //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
                     product = product3.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -173,9 +167,7 @@ private String title;
                     product5.requestFocus();
                     //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
                     product = product4.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -187,9 +179,7 @@ private String title;
                     product6.requestFocus();
                     //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
                     product = product5.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -201,9 +191,7 @@ private String title;
                     product7.requestFocus();
                     //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
                     product = product6.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -215,9 +203,7 @@ private String title;
                     product8.requestFocus();
                     //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
                     product = product7.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -228,9 +214,7 @@ private String title;
                     product9.setOpacity(1);
                     product9.requestFocus();
                     product = product8.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -241,9 +225,7 @@ private String title;
                     product10.setOpacity(1);
                     product10.requestFocus();
                     product = product9.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -254,9 +236,7 @@ private String title;
                     product11.setOpacity(1);
                     product11.requestFocus();
                     product = product10.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -267,9 +247,7 @@ private String title;
                     product12.setOpacity(1);
                     product12.requestFocus();
                     product = product11.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -280,9 +258,7 @@ private String title;
                     product13.setOpacity(1);
                     product13.requestFocus();
                     product = product12.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
 
                 }
             }
@@ -294,9 +270,7 @@ private String title;
                     product14.setOpacity(1);
                     product14.requestFocus();
                     product = product13.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -307,9 +281,7 @@ private String title;
                     product15.setOpacity(1);
                     product15.requestFocus();
                     product = product14.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -320,9 +292,7 @@ private String title;
                     product16.setOpacity(1);
                     product16.requestFocus();
                     product = product15.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -333,9 +303,7 @@ private String title;
                     product17.setOpacity(1);
                     product17.requestFocus();
                     product = product16.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -346,9 +314,7 @@ private String title;
                     product18.setOpacity(1);
                     product18.requestFocus();
                     product = product17.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -359,9 +325,7 @@ private String title;
                     product19.setOpacity(1);
                     product19.requestFocus();
                     product = product18.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
@@ -372,12 +336,16 @@ private String title;
                     product20.setOpacity(1);
                     product20.requestFocus();
                     product = product19.getText();
-                    ProductsModel model = new ProductsModel(0, recipeId, product);
-                    ProductsDao productsDao = new ProductsDaoImplements();
-                    productsDao.saveProducts(model);
+                    MakeModel();
                 }
             }
         });
+    }
+
+    public void MakeModel() {
+        ProductsModel model = new ProductsModel(0, recipeId, product);
+        ProductsDao productsDao = new ProductsDaoImplements();
+        productsDao.saveProducts(model);
     }
 
 }
