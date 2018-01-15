@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ProductsDao {
     void saveProducts(ProductsModel model);
-    List<ProductsModel> loadProductsModel(Integer id);
+    List<String> loadProductsModel();
 }

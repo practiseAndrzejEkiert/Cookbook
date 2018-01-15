@@ -20,6 +20,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
+import pl.andrzejekiert.models.ProductsModel;
 import pl.andrzejekiert.models.database.dao.CookbookDao;
 import pl.andrzejekiert.models.database.dao.ProductsDao;
 import pl.andrzejekiert.models.database.dao.impl.CookbookDaoImplements;
@@ -127,7 +128,11 @@ public class MainController implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
         AddProductVisibility();
-        String[] products = {"Pomidor", "Cebula", "Papryka", "Pietruszka korzeń", "Pietruszka natka"};
+        List<ProductsModel> products= productsDao.loadProductsModel();
+
+
+
+        String[] product = {"Pomidor", "Cebula", "Papryka", "Pietruszka korzeń", "Pietruszka natka"};
 //todo z bazydanych pobrac produky
         TextFields.bindAutoCompletion(product1, products);
         TextFields.bindAutoCompletion(product2, products);
@@ -151,22 +156,6 @@ public class MainController implements Initializable {
         TextFields.bindAutoCompletion(product20, products);
 
 
-        List<String> productsList = new ArrayList<>();
-//        button.setOnMouseClicked(e -> {
-//            if (e.isShiftDown()) {
-//                cookbookDao.loadCookbook(Integer.parseInt(textFieldInput.getText()));
-//                return;
-//            }
-//            if (e.isAltDown()) {
-//                productsDao.loadProductsModel(Integer.parseInt(textFieldInput.getText()));
-//                return;
-//
-//            }
-//            System.out.println(productsList);
-//
-//
-//
-//        });
         buttonAddRecipe.setOnMouseClicked(e -> {
             try {
                 handleButtonAction();

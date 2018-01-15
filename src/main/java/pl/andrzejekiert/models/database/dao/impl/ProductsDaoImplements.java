@@ -40,22 +40,24 @@ public class ProductsDaoImplements implements ProductsDao {
     }
 
     @Override
-    public List<ProductsModel> loadProductsModel(Integer id) {
-        List<ProductsModel> productsModels = new ArrayList<>();
+    public List<String> loadProductsModel() {
+        List<String> productsList = new ArrayList<>();
 
         PreparedStatement statement = databaseConnector.createStatement(
-                "SELECT * FROM ingriedients WHERE id = ?"
+                "SELECT  DISTINCT product  FROM ingredients"
         );
 
         try {
-            statement.setInt(1, id);
             ResultSet set = statement.executeQuery();
-            creatModels(productsModels, set);
+            while(set.next()){
+                String product = new String(set.getString("product"));
+                productsList.add(product);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return productsModels;
+        return productsList;
     }
 
     private void creatModels(List<ProductsModel> productsModels, ResultSet set) throws SQLException {
