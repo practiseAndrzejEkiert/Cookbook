@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CookbookDaoImplements implements CookbookDao{
+public class CookbookDaoImplements implements CookbookDao {
 
 
     private DatabaseConnector databaseConnector = DatabaseConnector.getInstance();
@@ -21,7 +21,7 @@ public class CookbookDaoImplements implements CookbookDao{
         PreparedStatement statement = databaseConnector.createStatement
                 ("INSERT INTO cookbook(Id,time, description, title) VALUES( ?,?,?, ?);");
         try {
-            statement.setInt(1,0);
+            statement.setInt(1, 0);
             statement.setInt(2, model.getTime());
             statement.setString(3, model.getDescription());
             statement.setString(4, model.getTitle());
@@ -43,7 +43,7 @@ public class CookbookDaoImplements implements CookbookDao{
         );
 
         try {
-            statement.setInt(1,id);
+            statement.setInt(1, id);
             ResultSet set = statement.executeQuery();
             creatModels(cookbookModels, set);
         } catch (SQLException e) {
@@ -55,12 +55,12 @@ public class CookbookDaoImplements implements CookbookDao{
 
     private void creatModels(List<CookbookModel> cookbookModels, ResultSet set) throws SQLException {
         CookbookModel model;
-        while (set.next()){
+        while (set.next()) {
             model = new CookbookModel(set.getInt("id"),
                     set.getInt("time"),
                     set.getString("description"),
                     set.getString("title"));
-cookbookModels.add(model);
+            cookbookModels.add(model);
             System.out.println(model);
         }
     }

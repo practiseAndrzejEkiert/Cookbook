@@ -10,6 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldListCell;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -91,141 +93,291 @@ public class AddRecipeController implements Initializable {
     @FXML
     TextField textFieldRecipe;
 
-private ConnectorDao connectorDao = new ConnectorDaoImplements();
+    private ConnectorDao connectorDao = new ConnectorDaoImplements();
     private ProductsDao productsDao = new ProductsDaoImplements();
+    private int recipeId;
+    private String product;
     private String recipe;
-    private String products1;
-    private String products2;
-    private String products3;
-    private String products4;
-    private String products5;
-    private String products6;
-    private String products7;
-    private String products8;
-    private String products9;
-    private String products10;
-    private String products11;
-    private String products12;
-    private String products13;
-    private String products14;
-    private String products15;
-    private String products16;
-    private String products17;
-    private String products18;
-    private String products19;
-    private String products20;
-    private String products21;
     private int time;
     private String description;
-
-
+private String title;
+//do poprawy niech się świeci na czerwono
     int counter = 1;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        buttonAddProducts.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (event.getButton().equals(MouseButton.PRIMARY)) {
+        AddProductVisibility();
+        AddRecipeButton();
+    }
 
-                    counter++;
-                    if (counter == 2) {
-                        product2.setOpacity(1);
-                    }
-                    if (counter == 3) {
-                        product3.setOpacity(1);
-                    }
-                    if (counter == 4) {
-                        product4.setOpacity(1);
-                    }
-                    if (counter == 5) {
-                        product5.setOpacity(1);
-                    }
-                    if (counter == 6) {
-                        product6.setOpacity(1);
-                    }
-                    if (counter == 7) {
-                        product7.setOpacity(1);
-                    }
-                    if (counter == 8) {
-                        product8.setOpacity(1);
-                    }
-                    if (counter == 9) {
-                        product9.setOpacity(1);
-                    }
-                    if (counter == 10) {
-                        product10.setOpacity(1);
-                    }
-                    if (counter == 11) {
-                        product11.setOpacity(1);
-                    }
-                    if (counter == 12) {
-                        product12.setOpacity(1);
-                    }
-                    if (counter == 13) {
-                        product13.setOpacity(1);
-                    }
-                    if (counter == 14) {
-                        product14.setOpacity(1);
-                    }
-                    if (counter == 15) {
-                        product15.setOpacity(1);
-                    }
-                    if (counter == 16) {
-                        product16.setOpacity(1);
-                    }
-                    if (counter == 17) {
-                        product17.setOpacity(1);
-                    }
-                    if (counter == 18) {
-                        product18.setOpacity(1);
-                    }
-                    if (counter == 19) {
-                        product19.setOpacity(1);
-                    }
-                    if (counter == 20) {
-                        product20.setOpacity(1);
-                    }
-                }
-            }
-        });
-
+    public void AddRecipeButton() {
         buttonAddRecipe.setOnMouseClicked(e -> {
-            recipe = (textFieldRecipe.getText());
-            products1 = product1.getText();
-            products2 = product2.getText();
-            products3 = product3.getText();
-            products4 = product4.getText();
-            products5 = product5.getText();
-            products6 = product6.getText();
-            products7 = product7.getText();
-            products8 = product8.getText();
-            products9 = product9.getText();
-            products10 = product10.getText();
-            products11 = product11.getText();
-            products12 = product12.getText();
-            products13 = product13.getText();
-            products14 = product14.getText();
-            products15 = product15.getText();
-            products16 = product16.getText();
-            products17 = product17.getText();
-            products18 = product18.getText();
-            products19 = product19.getText();
-            products20 = product20.getText();
-            products21 = product20.getText();
-
-            ProductsModel model = new ProductsModel(0, recipe, products1, products2, products3, products4, products5, products6, products7, products8, products9, products10, products11, products12, products13, products14, products15, products16, products17, products18, products19, products20, products21);
-            ProductsDao productsDao = new ProductsDaoImplements();
-            productsDao.saveProducts(model);
-            time= Integer.parseInt(textFieldTime.getText());
-            description=textAreaAddDescription.getText();
-            CookbookModel cookbookModel = new CookbookModel(0, time, description, recipe);
+            time = Integer.parseInt(textFieldTime.getText());
+            description = textAreaAddDescription.getText();
+            title = textFieldRecipe.getText();
+            CookbookModel cookbookModel = new CookbookModel(0, time, description, title);
             CookbookDao cookbookDao = new CookbookDaoImplements();
             cookbookDao.saveCookbook(cookbookModel);
             connectorDao.saveConnection();
         });
-
     }
 
+    private void AddProductVisibility() {
+        product1.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product2.setOpacity(1);
+                    product2.requestFocus();
+                    //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
+                    product = product1.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product2.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product3.setOpacity(1);
+                    product3.requestFocus();
+                    //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
+                    product = product2.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product3.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product4.setOpacity(1);
+                    product4.requestFocus();
+                    //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
+                    product = product3.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product4.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product5.setOpacity(1);
+                    product5.requestFocus();
+                    //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
+                    product = product4.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product5.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product6.setOpacity(1);
+                    product6.requestFocus();
+                    //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
+                    product = product5.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product6.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product7.setOpacity(1);
+                    product7.requestFocus();
+                    //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
+                    product = product6.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product7.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product8.setOpacity(1);
+                    product8.requestFocus();
+                    //  recipeId = Integer.parseInt((textFieldRecipe.getText()));
+                    product = product7.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product8.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product9.setOpacity(1);
+                    product9.requestFocus();
+                    product = product8.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product9.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product10.setOpacity(1);
+                    product10.requestFocus();
+                    product = product9.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product10.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product11.setOpacity(1);
+                    product11.requestFocus();
+                    product = product10.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product11.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product12.setOpacity(1);
+                    product12.requestFocus();
+                    product = product11.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product12.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product13.setOpacity(1);
+                    product13.requestFocus();
+                    product = product12.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+
+                }
+            }
+        });
+        product13.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product14.setOpacity(1);
+                    product14.requestFocus();
+                    product = product13.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product14.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product15.setOpacity(1);
+                    product15.requestFocus();
+                    product = product14.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product15.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product16.setOpacity(1);
+                    product16.requestFocus();
+                    product = product15.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product16.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product17.setOpacity(1);
+                    product17.requestFocus();
+                    product = product16.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product17.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product18.setOpacity(1);
+                    product18.requestFocus();
+                    product = product17.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product18.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product19.setOpacity(1);
+                    product19.requestFocus();
+                    product = product18.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+        product19.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    product20.setOpacity(1);
+                    product20.requestFocus();
+                    product = product19.getText();
+                    ProductsModel model = new ProductsModel(0, recipeId, product);
+                    ProductsDao productsDao = new ProductsDaoImplements();
+                    productsDao.saveProducts(model);
+                }
+            }
+        });
+    }
 
 }

@@ -14,17 +14,17 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Button fx:id="buttonAddProducts" layoutX="451.0" layoutY="360.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="169.0" text="Dodaj produkt">
+      <Button fx:id="buttonAddProducts" layoutX="282.0" layoutY="299.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="169.0" text="Dodaj produkt">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <TextArea fx:id="textAreaAddDescription" layoutX="37.0" layoutY="174.0" prefHeight="200.0" prefWidth="200.0" promptText="Opis " />
+      <TextArea fx:id="textAreaAddDescription" layoutX="37.0" layoutY="111.0" prefHeight="263.0" prefWidth="200.0" promptText="Opis " />
       <Button fx:id="buttonAddRecipe" layoutX="237.0" layoutY="349.0" mnemonicParsing="false" text="Dodaj przepis" />
-      <TextField fx:id="textFieldRecipe" layoutX="41.0" layoutY="47.0" prefHeight="25.0" prefWidth="193.0" promptText="Nazwa przepisu" />
+      <TextField fx:id="textFieldRecipe" layoutX="37.0" layoutY="47.0" prefHeight="25.0" prefWidth="200.0" promptText="Nazwa przepisu" />
       <VBox fx:id="vBox1" layoutX="282.0" layoutY="49.0" prefHeight="250.0" prefWidth="169.0">
          <children>
-            <TextField fx:id="product1" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produky" />
+            <TextField fx:id="product1" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
             <TextField fx:id="product2" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
             <TextField fx:id="product3" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
             <TextField fx:id="product4" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
@@ -50,6 +50,6 @@
             <TextField fx:id="product20" opacity="0.0" prefHeight="25.0" prefWidth="193.0" promptText="dodaj produkt" />
          </children>
       </VBox>
-      <TextField fx:id="textFieldTime" layoutX="41.0" layoutY="97.0" prefHeight="25.0" prefWidth="193.0" promptText="Szacowany czas" />
+      <TextField fx:id="textFieldTime" layoutX="37.0" layoutY="79.0" prefHeight="25.0" prefWidth="200.0" promptText="Szacowany czas w minutach" />
    </children>
 </AnchorPane>
