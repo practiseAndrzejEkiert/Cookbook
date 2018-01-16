@@ -30,6 +30,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.*;
 
 
@@ -49,7 +50,7 @@ public class MainController implements Initializable {
     @FXML
     private Text textProducts;
     @FXML
-    private Button button;
+    private Button buttonSearch;
     @FXML
     private ListView listViewProducts;
 
@@ -124,16 +125,12 @@ public class MainController implements Initializable {
 
     private CookbookDao cookbookDao = new CookbookDaoImplements();
     private ProductsDao productsDao = new ProductsDaoImplements();
-
+public List<String> productList=new ArrayList<>();
 
     public void initialize(URL location, ResourceBundle resources) {
         AddProductVisibility();
-        List<ProductsModel> products= productsDao.loadProductsModel();
+        List<String> products= productsDao.loadProductsModel();
 
-
-
-        String[] product = {"Pomidor", "Cebula", "Papryka", "Pietruszka korzeń", "Pietruszka natka"};
-//todo z bazydanych pobrac produky
         TextFields.bindAutoCompletion(product1, products);
         TextFields.bindAutoCompletion(product2, products);
         TextFields.bindAutoCompletion(product3, products);
@@ -163,7 +160,17 @@ public class MainController implements Initializable {
                 e1.printStackTrace();
             }
         });
+        buttonSearch.setOnMouseClicked(e->{
+            try {
+                cookbookDao.checkProducts(productList);
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+        });
     }
+
+
+
 
 
     void handleButtonAction() throws IOException {
@@ -182,6 +189,7 @@ public class MainController implements Initializable {
             @Override
             public void handle(KeyEvent event) {
                 if (event.getCode() == KeyCode.ENTER) {
+                    productList.add(product1.getText());
                     product2.setOpacity(1);
                     product2.requestFocus();
                 }
@@ -192,7 +200,7 @@ public class MainController implements Initializable {
             public void handle(KeyEvent event) {
                 if (event.getCode() == KeyCode.ENTER) {
                     product3.setOpacity(1);
-                    product3.requestFocus();
+                    product3.requestFocus();productList.add(product2.getText());
                 }
             }
         });
@@ -201,7 +209,7 @@ public class MainController implements Initializable {
             public void handle(KeyEvent event) {
                 if (event.getCode() == KeyCode.ENTER) {
                     product4.setOpacity(1);
-                    product4.requestFocus();
+                    product4.requestFocus();productList.add(product3.getText());
                 }
             }
         });
@@ -210,7 +218,7 @@ public class MainController implements Initializable {
             public void handle(KeyEvent event) {
                 if (event.getCode() == KeyCode.ENTER) {
                     product5.setOpacity(1);
-                    product5.requestFocus();
+                    product5.requestFocus();productList.add(product4.getText());
                 }
             }
         });
@@ -219,7 +227,7 @@ public class MainController implements Initializable {
             public void handle(KeyEvent event) {
                 if (event.getCode() == KeyCode.ENTER) {
                     product6.setOpacity(1);
-                    product6.requestFocus();
+                    product6.requestFocus();productList.add(product5.getText());
                 }
             }
         });

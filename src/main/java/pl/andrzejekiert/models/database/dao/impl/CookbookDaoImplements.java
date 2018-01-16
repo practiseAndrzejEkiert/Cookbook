@@ -2,14 +2,15 @@ package pl.andrzejekiert.models.database.dao.impl;
 
 import pl.andrzejekiert.models.CookbookModel;
 import pl.andrzejekiert.models.database.DatabaseConnector;
-import pl.andrzejekiert.models.database.dao.ConnectorDao;
 import pl.andrzejekiert.models.database.dao.CookbookDao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CookbookDaoImplements implements CookbookDao {
 
@@ -37,9 +38,8 @@ public class CookbookDaoImplements implements CookbookDao {
     @Override
     public List<CookbookModel> loadCookbook(Integer id) {
         List<CookbookModel> cookbookModels = new ArrayList<>();
-
         PreparedStatement statement = databaseConnector.createStatement(
-                "SELECT * FROM cookbook WHERE id = ?"
+                "SELECT * FROM cookbook"
         );
 
         try {
@@ -52,6 +52,22 @@ public class CookbookDaoImplements implements CookbookDao {
 
         return cookbookModels;
     }
+
+    @Override
+    public void checkProducts(List<String> productList) throws SQLException {
+Set<Integer> values = new HashSet<>();
+        for (int i = 0; i < productList.size(); i++) {
+            String queryString = ("SELECT DISTINCT recipeId FROM ingredients WHERE product NOT LIKE \"" + productList.get(i)) +"\"";
+            PreparedStatement stmt = databaseConnector.createStatement(queryString);
+            ResultSet rset = stmt.executeQuery(queryString);
+         while (rset.next()) { //-------------------->This is what i changed
+int value = new Integer(rset.getInt("recipeId"));
+                values.add(value);
+            }
+        }
+        System.out.println(values);
+    }
+
 
     private void creatModels(List<CookbookModel> cookbookModels, ResultSet set) throws SQLException {
         CookbookModel model;
