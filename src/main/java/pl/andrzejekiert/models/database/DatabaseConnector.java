@@ -18,8 +18,13 @@ public class DatabaseConnector {
         connect();
     }
 
+    public DatabaseConnector(Connection connection) {
+        this.connection = connection;
+    }
+
     private void connect() {
         try {
+
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(Confing.MYSQL_LINK, Confing.MYSQL_LOGIN,Confing.MYSQL_PASSWORD);
 

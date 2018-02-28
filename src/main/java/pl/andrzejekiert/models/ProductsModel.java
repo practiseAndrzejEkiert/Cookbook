@@ -3,8 +3,7 @@ package pl.andrzejekiert.models;
 public class ProductsModel {
    private int id;
    private int recipeId;
-
-    private String product;
+   private String product;
 
     public ProductsModel(int id, int recipeId, String product) {
         this.id = id;
